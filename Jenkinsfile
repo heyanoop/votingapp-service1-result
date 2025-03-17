@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Code Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com:heyanoop/votingapp-service1-result.git'
+                git branch: 'main', url: 'https://github.com/heyanoop/votingapp-service1-result.git'
             }
         }
 
