@@ -2,7 +2,6 @@ pipeline {
     agent any
     environment {
         DOCKER_IMAGE = "heyanoop/resultapp:${BUILD_NUMBER}"
-        KUBE_CREDENTIALS = 'cluster-token'
     }
 
     stages {
@@ -52,7 +51,7 @@ pipeline {
  
         stage('Deploy to AKS') {
             steps {
-                withKubeConfig([credentialsId: KUBE_CREDENTIALS], serverUrl: 'exampleaks1-0tlmtrhy.hcp.eastus.azmk8s.io') {
+                withKubeConfig([serverUrl: 'exampleaks1-0tlmtrhy.hcp.eastus.azmk8s.io', credentialsId: 'cluster-token']) {
                     sh 'kubectl apply -f deployment.yaml -n votingapp'
                 }
             }
