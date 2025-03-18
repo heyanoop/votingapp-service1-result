@@ -4,6 +4,7 @@ metadata:
   labels:
     app: vote
   name: vote
+  namespace: votingapp 
 spec:
   replicas: 1
   selector:
@@ -15,7 +16,7 @@ spec:
         app: vote
     spec:
       containers:
-      - image: heyanoop/examplevotingapp_vote
+      - image: heyanoop/voteapp:12
         name: vote
         ports:
         - containerPort: 80
