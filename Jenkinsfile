@@ -46,7 +46,7 @@ pipeline {
         stage('Deploy to AKS') {
             steps {
                 withKubeConfig([serverUrl: 'exampleaks1-0tlmtrhy.hcp.eastus.azmk8s.io', credentialsId: 'cluster-token']) {
-                    sh 'kubectl apply -f k8s-specifications/result-deployment.yaml'
+                    sh 'kubectl apply -f k8s-specifications/result-deployment.yaml -n votingapp'
                 }
             }
         }
