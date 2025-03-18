@@ -52,10 +52,12 @@ pipeline {
  
         stage('Deploy to AKS') {
             steps {
-                withKubeConfig([credentialsId: KUBE_CREDENTIALS]) {
+                withKubeConfig([credentialsId: KUBE_CREDENTIALS], serverUrl: 'exampleaks1-0tlmtrhy.hcp.eastus.azmk8s.io') {
                     sh 'kubectl apply -f deployment.yaml -n votingapp'
                 }
             }
         }
         }
     }
+
+    
