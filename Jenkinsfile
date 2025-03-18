@@ -50,7 +50,6 @@ pipeline {
             }
         }
  
-         stages {
         stage('Deploy to AKS') {
             steps {
                 withKubeConfig([credentialsId: KUBE_CREDENTIALS]) {
